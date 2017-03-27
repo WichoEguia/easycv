@@ -1,0 +1,155 @@
+<%= form_for(curriculum) do |f| %>
+  <% if curriculum.errors.any? %>
+    <div id="error_explanation" data-url="hi">
+      <%= javascript_tag do %>
+        swal("Error al enviar :(","Revisa los datos introducidos para poder continuar","warning");
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--5-col">
+      <%= f.label :nombre, class: "mdl-textfield__label" %>
+      <%= f.text_field :nombre, value: "#{current_user.name} #{current_user.lastname}", readonly: "true", class: "mdl-textfield__input" %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+      <%= f.label :edad, class: "mdl-textfield__label" %>
+      <%= f.number_field :edad, class: "mdl-textfield__input", min: "1", max: "80" %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+      <%= f.label :email, class: "mdl-textfield__label" %>
+      <%= f.text_field :email, value: current_user.email, class: "mdl-textfield__input" %>
+    </div>
+  </div>
+
+  <!-- <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+      <%= f.label :edad, class: "mdl-textfield__label" %>
+      <%= f.number_field :edad, class: "mdl-textfield__input" %>
+    </div>
+  </div> -->
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+      <!-- <%= f.label :sexo, class: "mdl-textfield__label" %>
+      <%= f.text_field :sexo, class: "mdl-textfield__input" %> -->
+      <span style="font-size:12px;color:rgb(63,81,181);">Estado:</span><br>
+      <%= f.radio_button :sexo, 'Masculino', :checked => true %>
+      <%= label :sexo, 'Masculino' %>
+      <span style="margin:20px;"></span>
+      <%= f.radio_button :sexo, 'Femenino' %>
+      <%= label :sexo, 'Femenino' %>
+    </div>
+  </div>
+
+  <!-- <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+      <%= f.label :email, class: "mdl-textfield__label" %>
+      <%= f.text_field :email, value: current_user.email, class: "mdl-textfield__input" %>
+    </div>
+  </div> -->
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+      <%= f.label :direccion, "Dirección y número de casa", class: "mdl-textfield__label" %>
+      <%= f.text_field :direccion, class: "mdl-textfield__input" %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+      <%= f.label :codigo_postal, class: "mdl-textfield__label" %>
+      <%= f.number_field :codigo_postal, class: "mdl-textfield__input" %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+      <%= f.label :ciudad, class: "mdl-textfield__label" %>
+      <%= f.text_field :ciudad, class: "mdl-textfield__input" %>
+    </div>
+  </div>
+
+  <!-- <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+      <%= f.label :codigo_postal, class: "mdl-textfield__label" %>
+      <%= f.number_field :codigo_postal, class: "mdl-textfield__input" %>
+    </div>
+  </div> -->
+
+  <!-- <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+      <%= f.label :ciudad, class: "mdl-textfield__label" %>
+      <%= f.text_field :ciudad, class: "mdl-textfield__input" %>
+    </div>
+  </div> -->
+
+  <!-- <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+      <%= f.label :estado, class: "mdl-textfield__label" %>
+      <%= f.text_field :estado, class: "mdl-textfield__input" %>
+    </div>
+  </div> -->
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+      <% estados = ["Aguascalientes", "Baja California", "Baja California Sur", "Campeche"] %>
+      <% estados += ["Chiapas", "Chihuahua", "Coahuila de Zaragoza", "Colima", "Ciudad de México"] %>
+      <% estados += ["Durango", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Mexico", "Michoacan de Ocampo"] %>
+      <% estados += ["Morelos", "Nayarit", "Nuevo Leon", "Oaxaca", "Puebla", "Queretaro de Arteaga"] %>
+      <% estados += ["Quintana Roo", "San Luis Potosi", "Sinaloa", "Sonora", "Tabasco"] %>
+      <% estados += ["Tamaulipas", "Tlaxcala", "Veracruz-Llave", "Yucatan", "Zacatecas"] %>
+      <span style="font-size:12px;color:rgb(63,81,181);">Estado:</span><br>
+      <%= f.select :estado, estados, {}, include_blank: true, class: "chosen_select", style: "width: 200px;" %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+      <%= f.label :telefono, class: "mdl-textfield__label" %>
+      <%= f.text_field :telefono, class: "mdl-textfield__input" %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+      <%= f.label :celular, class: "mdl-textfield__label" %>
+      <%= f.text_field :celular, class: "mdl-textfield__input" %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+      <%= f.label :especialidad, class: "mdl-textfield__label" %>
+      <%= f.text_field :especialidad, class: "mdl-textfield__input" %>
+    </div>
+  </div>
+
+  <!-- <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+      <%= f.label :celular, class: "mdl-textfield__label" %>
+      <%= f.text_field :celular, class: "mdl-textfield__input" %>
+    </div>
+  </div> -->
+
+  <!-- <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+      <%= f.label :especialidad, class: "mdl-textfield__label" %>
+      <%= f.text_field :especialidad, class: "mdl-textfield__input" %>
+    </div>
+  </div> -->
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+      <% grados_estudio = ["Secundaria","Preparatoria general","Bachillerato general","Bachillerato tecnico","Licenciatura","Maestria","Doctorado"] %>
+      <span style="font-size:12px;color:rgb(63,81,181);">Grado de estudios:</span><br>
+      <%= f.select :grado_estudios, grados_estudio, {}, include_blank: true, class: "chosen_select", style: "width: 200px;" %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--3-col">
+      <%= f.label :sueldo_dec, "Sueldo deseado", class: "mdl-textfield__label" %>
+      <%= f.number_field :sueldo_dec, class: "mdl-textfield__input" %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+      <%= f.label :herramientas_usadas, class: "mdl-textfield__label" %>
+      <%= f.text_area :herramientas_usadas, class: "mdl-textfield__input", rows: 3 %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Guardar cambios" %>
+  </div>
+<% end %>

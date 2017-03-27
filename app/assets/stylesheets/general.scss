@@ -1,0 +1,72 @@
+@import 'variables';
+@import 'mixins';
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'lato', sans-serif;
+  box-sizing: border-box;
+}
+
+.login_header{
+  width: 100%;
+  height: 250px;
+  background: $main_color;
+}
+
+.login_container{
+  background: white;
+  padding: 25px 50px;
+  @include shadow(2);
+  position: absolute;
+}
+
+main{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.this_is_a_login_form{
+  form{
+    input[type="checkbox"]{
+      @include checkbox;
+    }
+  }
+}
+
+.actions input{
+  @include button(normal);
+}
+
+.field.margin_field,
+.actions{
+  margin: 15px 0;
+}
+
+header{
+  h2{
+    color: #fff;
+    margin: 0;
+    padding: 15px;
+  }
+  span{
+    font-size: 30px;
+  }
+}
+
+span.strong{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.CV_controls .button{
+  @include button(normal);
+  margin: 0 10px;
+}
+
+.mdl-textfield__input{
+  border-bottom-color: rgba(#000,.3) !important;
+}

@@ -1,0 +1,2 @@
+class AddCurriculumIdToUser < ApplicationRecord
+end

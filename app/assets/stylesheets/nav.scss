@@ -1,0 +1,85 @@
+@import "variables";
+@import "mixins";
+
+.flex{
+  display: flex;
+  &.centerX{
+    justify-content: center;
+  }
+  &.centerY{
+    align-items: center;
+  }
+  &.row{
+    flex-direction: row;
+  }
+  &.column{
+    flex-direction: column;
+  }
+}
+
+.mdl-layout__header{
+  background: $main_color;
+}
+
+.mdl-layout__drawer{
+  background: $dark_color;
+  color: #fff;
+  border-color: $dark_color;
+}
+
+.headerDrawer{
+  background: darken($dark_color,10%);
+  height: 200px;
+  .userData{
+    margin: 50px 20px;
+    width: 100%;
+    text-align: center;
+    span{
+      font-size: 18px;
+      font-weight: 300;
+      cursor: pointer;
+    }
+  }
+  img{
+    @include circle(80px);
+    margin-bottom: 20px;
+  }
+}
+
+.titleNav{
+  font-size: 18px;
+  color: rgba(#fff,.8);
+}
+
+.mdl-navigation__link{
+  box-shadow: inset 0 0 0 0 $main_color;
+  transition: box-shadow .5s;
+  color: darken(#fff, 30) !important;
+  i{
+    margin-right: 10px;
+  }
+  &:hover{
+    color: #fff !important;
+    box-shadow: inset 1000px 0 0 0 $main_color;
+    background: $dark_color !important;
+  }
+}
+
+.mdl-textfield__input{
+  border-bottom: 1.5px solid #fff;
+}
+
+.page-content{
+  position: absolute;
+  width: 100%;
+}
+
+.userAvatar{
+  @include circle(50px);
+  margin-right: 15px;
+}
+
+a{
+  text-decoration: none;
+  color: $main-color;
+}

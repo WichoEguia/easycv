@@ -1,0 +1,50 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <a href="" class="mdl-layout--title titleNav">EASY CV</a>
+      <div class="mdl-layout-spacer"></div>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <div class="headerDrawer centerX centerY flex">
+      <div class="userData" id="demo-menu-lower-left">
+        <img src="http://www.unityns.org/sites/unityns.oneeach.org/files/aa-%20Circle%20Logo%20Blue.jpg" />
+        <span class="mdl-layout-title"><%= current_user.name %></span>
+      </div>
+    </div>
+    <nav class="mdl-navigation">
+      <%= link_to root_path, class:"mdl-navigation__link" do %>
+        <i class="material-icons">account_box</i>Perfil
+      <% end %>
+
+      <% if current_user.curriculum %>
+        <%= link_to edit_curriculum_path(current_user.curriculum.id), class: "button mdl-navigation__link" do %>
+          <i class="material-icons">mode_edit</i>Editar curriculum
+        <% end %>
+        <%= link_to curriculum_path(current_user.curriculum.id), class: "button mdl-navigation__link" do %>
+          <i class="material-icons">visibility</i>Ver curriculum
+        <% end %>
+      <% else %>
+        <%= link_to new_curriculum_path, class: "button mdl-navigation__link" do %>
+          <i class="material-icons">note_add</i>Crear curriculum
+        <% end %>
+      <% end %>
+
+      <%= link_to destroy_user_session_path, method: :delete, class:"mdl-navigation__link" do %>
+        <i class="material-icons">lock</i>Salir
+      <% end %>
+    </nav>
+  </div>
+  <main class="mdl-layout__content mdl-color--grey-100">
+    <div class="page-content">
+      <div class="mdl-cell mdl-cell--10-col mdl-grid">
+        <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+          <div class="mdl-cell mdl-cell--12-col">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

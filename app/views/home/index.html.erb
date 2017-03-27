@@ -1,0 +1,22 @@
+<% if notice && notice == "No tiene permitido entrar a esta vista."%>
+  <div id="error_explanation" data-url="hi">
+    <%= javascript_tag do %>
+      var notice = '<%= notice %>'
+      swal("Acceso denegado",notice + " >:v","warning");
+    <% end %>
+  </div>
+<% end %>
+<div class="mdl-grid flex centerY">
+  <div class="info_user" style="width:100%;">
+    <p>Nombre del solcitante: <span class="strong"><%= "#{current_user.name} #{current_user.lastname}" %></span></p>
+    <p>Direccion de correo: <span class="strong"><%= current_user.email %></span></p>
+    <p>Cita aceptada: <span class="strong">SI/NO</span></p>
+    <!-- Contenido visible en caso de que la cita sea aceptada -->
+    <p>Fecha de cita: <span class="strong">dd-mm-aaaa hh:mm</span></p>
+    <br><hr><br>
+    <p>Atendido por: <span class="strong">Nombre de recluta</span></p>
+    <p>Telefono: <span class="strong">Telefono de recluta</span></p>
+    <p>Email: <span class="strong">Email de recluta</span></p>
+    <!-- Fin -->
+  </div>
+</div>

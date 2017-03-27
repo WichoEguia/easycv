@@ -1,0 +1,30 @@
+@import "variables";
+@import "mixins";
+
+.curriculum_container{
+  .curriculum_item{
+    @include shadow(1);
+    border-left: 3px solid $main_color;
+    margin-bottom: 20px;
+    display: flex;
+  }
+  p{
+    margin: 0;
+    font-size: 20px;
+    padding: 20px;
+    color: $main_color;
+  }
+  span{
+    margin-top: 5px;
+    font-size: 25px;
+    color: #292929;
+  }
+}
+
+.name_curriculum{
+  p{
+    font-size: 40px !important;
+    padding: 20px;
+    color: #636363;
+  }
+}
