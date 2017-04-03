@@ -26,8 +26,8 @@
 
 @mixin button($type){
   border: 0;
-  padding: 7px 15px;
-  margin-bottom: 10px;
+  padding: 7px 10px;
+  margin-bottom: 5px;
   cursor: pointer;
   color: #fff;
   font-size: 20px;
@@ -55,7 +55,7 @@
     border-radius: 3px;
     cursor: pointer;
     &:hover{
-      background: rgba($main_color,.1);
+      background: rgba($success_color,.1);
     }
     &:before{
       content:"";
@@ -72,7 +72,7 @@
   }
   &:checked + label{
     padding: 5px 15px;
-    background: $main_color;
+    background: $success_color;
     border-radius: 2px;
     color: #fff;
     &:before{
