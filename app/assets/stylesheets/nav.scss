@@ -41,8 +41,8 @@
     }
   }
   img{
-    @include circle(80px);
-    margin-bottom: 20px;
+    @include square(100px);
+    margin-bottom: 15px;
   }
 }
 
@@ -75,7 +75,7 @@
 }
 
 .userAvatar{
-  @include circle(50px);
+  @include square(130px);
   margin-right: 15px;
 }
 

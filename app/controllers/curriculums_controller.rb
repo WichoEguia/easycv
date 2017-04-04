@@ -74,7 +74,7 @@ class CurriculumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def curriculum_params
-      params.require(:curriculum).permit(:nombre, :edad, :sexo, :direccion, :codigo_postal, :ciudad, :estado, :email, :telefono, :celular, :especialidad, :grado_estudios, :sueldo_dec, :herramientas_usadas)
+      params.require(:curriculum).permit(:nombre, :edad, :sexo, :direccion, :codigo_postal, :idiomas, :experiencia_laboral, :institucion_educativa, :ciudad, :estado, :email, :telefono, :celular, :especialidad, :grado_estudios, :sueldo_dec, :herramientas_usadas)
     end
 
     # Validando que el curriculum le pertenece al usuario, si no es así se
