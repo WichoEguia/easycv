@@ -8,8 +8,10 @@
 <% end %>
 <div class="mdl-grid flex centerY">
   <div class="info_user" style="width:100%;">
-    <p>Nombre del solcitante: <span class="strong"><%= "#{current_user.name} #{current_user.lastname}" %></span></p>
-    <p>Direccion de correo: <span class="strong"><%= current_user.email %></span></p>
+    <% if current_user %>
+      <p>Nombre del solcitante: <span class="strong"><%= "#{current_user.name} #{current_user.lastname}" %></span></p>
+      <p>Direccion de correo: <span class="strong"><%= current_user.email %></span></p>
+    <% end %>
     <p>Cita aceptada: <span class="strong">SI/NO</span></p>
     <!-- Contenido visible en caso de que la cita sea aceptada -->
     <p>Fecha de cita: <span class="strong">dd-mm-aaaa hh:mm</span></p>

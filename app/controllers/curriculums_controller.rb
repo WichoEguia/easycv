@@ -90,7 +90,7 @@ class CurriculumsController < ApplicationController
 
     #Evitando que algun usuario común entre a la lista de curriculums
     def protect_curriculums_list
-      if current_user
+      if current_user || current_recruit
         respond_to do |format|
           format.html { redirect_to root_path, notice: 'No tiene permitido entrar a esta vista.' }
           format.js { render js: "nope_url()" }

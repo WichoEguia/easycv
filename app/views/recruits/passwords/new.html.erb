@@ -1,0 +1,18 @@
+<h2>Recuperar contraseña</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+      <%= f.label :email, class: "mdl-textfield__label" %>
+      <%= f.email_field :email, autofocus: true, class: "mdl-textfield__input"%>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Cambiar contraseña" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>
