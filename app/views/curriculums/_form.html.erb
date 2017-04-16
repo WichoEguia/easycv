@@ -36,6 +36,13 @@
   </div>
 
   <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+      <%= f.label :personal_information, class: "mdl-textfield__label" %>
+      <%= f.text_area :personal_information, class: "mdl-textfield__input", rows: 3 %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
       <%= f.label :direccion, "Dirección y número de casa", class: "mdl-textfield__label" %>
       <%= f.text_field :direccion, class: "mdl-textfield__input" %>
@@ -88,8 +95,8 @@
 
   <div class="field mdl-grid">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--3-col">
-      <span style="font-size:12px;color:rgb(63,81,181);">Grado de estudios:</span><br>
-      <%= f.select :sueldo_dec, (500..10000).step(500).to_a, {}, include_blank: true, class: "chosen_select", style: "width: 200px;" %>
+      <span style="font-size:12px;color:rgb(63,81,181);">Sueldo deceado:</span><br>
+      <%= f.select :sueldo_dec, (500..6000).step(500).to_a, {}, include_blank: true, class: "chosen_select", style: "width: 200px;" %>
     </div>
   </div>
 
@@ -115,6 +122,20 @@
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
       <span style="font-size:12px;color:rgb(63,81,181);">Nivel de inglés (%):</span><br>
       <%= f.select :english_level, (0..100).step(10).to_a, {}, include_blank: true, class: "chosen_select", style: "width: 200px;" %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+      <%= f.label :last_work, class: "mdl-textfield__label" %>
+      <%= f.text_field :last_work, class: "mdl-textfield__input" %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+      <%= f.label :last_work_description, class: "mdl-textfield__label" %>
+      <%= f.text_area :last_work_description, class: "mdl-textfield__input", rows: 3 %>
     </div>
   </div>
 
