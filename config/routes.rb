@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :curriculums
+  resources :lists
   root 'home#index'
   get 'recruits/root', to: 'home#search'
 end

@@ -10,7 +10,9 @@
       <div class="userData" id="demo-menu-lower-left">
         <%= image_tag "Logo_EasyCV.svg" %>
         <% if current_user %>
-          <span class="mdl-layout-title"><%= current_user.name %></span>
+          <span class="mdl-layout-title"><%= "#{current_user.name} #{current_user.lastname}" %></span>
+        <% else %>
+          <span class="mdl-layout-title"><%= "#{current_recruit.name} #{current_recruit.lastname}" %></span>
         <% end %>
       </div>
     </div>
@@ -45,6 +47,10 @@
       <% else %>
 
         <%= link_to recruits_root_path, class:"mdl-navigation__link" do %>
+          <i class="material-icons">account_box</i>Perfil
+        <% end %>
+
+        <%= link_to new_list_path, class:"mdl-navigation__link" do %>
           <i class="material-icons">search</i>Busqueda
         <% end %>
 
@@ -65,10 +71,12 @@
   </div>
   <main class="mdl-layout__content mdl-color--grey-100">
     <div class="page-content">
-      <div class="mdl-cell mdl-cell--10-col mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col mdl-grid">
         <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
           <div class="mdl-cell mdl-cell--12-col">
-            <%= yield %>
+            <div class="lateral_space">
+              <%= yield %>
+            </div>
           </div>
         </div>
       </div>

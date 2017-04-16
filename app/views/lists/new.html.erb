@@ -1,0 +1,53 @@
+<h3 style="margin-bottom:10px;">Buscar</h3>
+
+<%= form_for @list, remote: true, html: {class: "search-form"} do |s| %>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+      <%= s.label :min_age, "Edad minima", class: "mdl-textfield__label" %>
+      <%= s.text_field :min_age, class: "mdl-textfield__input" %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+      <%= s.label :max_age, "Edad maxima", class: "mdl-textfield__label" %>
+      <%= s.text_field :max_age, class: "mdl-textfield__input" %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+      <%= s.label :speciality, "Especialidad", class: "mdl-textfield__label" %>
+      <%= s.text_field :speciality, class: "mdl-textfield__input" %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+      <% estados = ["","Aguascalientes", "Baja California", "Baja California Sur", "Campeche"] %>
+      <% estados += ["Chiapas", "Chihuahua", "Coahuila de Zaragoza", "Colima", "Ciudad de México"] %>
+      <% estados += ["Durango", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Mexico", "Michoacan de Ocampo"] %>
+      <% estados += ["Morelos", "Nayarit", "Nuevo Leon", "Oaxaca", "Puebla", "Queretaro de Arteaga"] %>
+      <% estados += ["Quintana Roo", "San Luis Potosi", "Sinaloa", "Sonora", "Tabasco"] %>
+      <% estados += ["Tamaulipas", "Tlaxcala", "Veracruz-Llave", "Yucatan", "Zacatecas"] %>
+      <span style="font-size:12px;color:rgb(63,81,181);">Estado:</span><br>
+      <%= s.select :state, estados, {}, include_blank: true, class: "chosen_select" %>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--4-col">
+      <% grados_estudio = ["","Secundaria","Preparatoria general","Bachillerato general","Bachillerato tecnico","Licenciatura","Maestria","Doctorado"] %>
+      <span style="font-size:12px;color:rgb(63,81,181);">Grado de estudios:</span><br>
+      <%= s.select :grade, grados_estudio, {}, include_blank: true, class: "chosen_select", style: "width: 200px;" %>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--4-col">
+      <% a = (0..100).step(10).to_a %>
+      <% b = [""] + a %>
+      <span style="font-size:12px;color:rgb(63,81,181);">Nivel de inglés requerido:</span><br>
+      <%= s.select :english_level, b, {}, include_blank: true, class: "chosen_select", style: "width: 200px;" %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= s.submit "Buscar" %>
+  </div>
+
+<% end %>

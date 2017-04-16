@@ -1,0 +1,24 @@
+<h3>Resultado de busqueda</h3>
+
+<%= link_to "Volver a buscar", new_list_path, class: "custom_button" %>
+
+<!-- <div class="flex centerX"> -->
+  <% if !@list.search_curriculums.empty? %>
+    <% @list.search_curriculums.each do |c| %>
+      <div class="mdl-cell mdl-cell--12-col mdl-grid">
+        <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+          <div>
+            <p><%= "#{c.nombre}, #{c.edad} años" %></p>
+            <p><strong><%= "#{c.especialidad}" %></strong></p>
+            <p><%= c.herramientas_usadas %></p>
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <%= link_to "Ver", c, class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p style="font-size:25px;margin-top:25px;color:tomato;">No se encontraron coincidencias.</p>
+  <% end %>
+<!-- </div> -->

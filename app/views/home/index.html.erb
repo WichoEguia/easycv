@@ -8,14 +8,22 @@
 <% end %>
 <div class="mdl-grid flex centerY">
   <div class="info_user" style="width:100%;">
+    <h3>Perfil</h3>
     <% if current_user %>
       <p>Nombre del solcitante: <span class="strong"><%= "#{current_user.name} #{current_user.lastname}" %></span></p>
       <p>Direccion de correo: <span class="strong"><%= current_user.email %></span></p>
+      <p>Número de identificación: <span class="strong"><%= current_user.id %></span></p>
+      <%# link_to "Editar", edit_user_registration_path, class: "custom_button" %>
     <% end %>
+
+    <h3>Situación</h3>
+
     <p>Cita aceptada: <span class="strong">SI/NO</span></p>
     <!-- Contenido visible en caso de que la cita sea aceptada -->
     <p>Fecha de cita: <span class="strong">dd-mm-aaaa hh:mm</span></p>
-    <br><hr><br>
+
+    <h3>Información del recluta</h3>
+
     <p>Atendido por: <span class="strong">Nombre de recluta</span></p>
     <p>Telefono: <span class="strong">Telefono de recluta</span></p>
     <p>Email: <span class="strong">Email de recluta</span></p>

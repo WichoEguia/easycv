@@ -41,7 +41,7 @@ class CurriculumsController < ApplicationController
       end
     end
   end
-
+  
   # PATCH/PUT /curriculums/1
   # PATCH/PUT /curriculums/1.json
   def update
@@ -74,16 +74,18 @@ class CurriculumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def curriculum_params
-      params.require(:curriculum).permit(:nombre, :edad, :sexo, :direccion, :codigo_postal, :idiomas, :experiencia_laboral, :institucion_educativa, :ciudad, :estado, :email, :telefono, :celular, :especialidad, :grado_estudios, :sueldo_dec, :herramientas_usadas)
+      params.require(:curriculum).permit(:nombre, :edad, :sexo, :direccion, :codigo_postal, :english_level, :experiencia_laboral, :institucion_educativa, :ciudad, :estado, :email, :telefono, :celular, :especialidad, :grado_estudios, :sueldo_dec, :herramientas_usadas)
     end
 
     # Validando que el curriculum le pertenece al usuario, si no es así se
     # redireccionará al usuario a su perfil.
     def validate_user_curriculum
-      if current_user.id != @curriculum.user_id
-        respond_to do |format|
-          format.html { redirect_to root_path, notice: 'No tiene permitido entrar a esta vista.' }
-          format.js { render js: "nope_url()" }
+      if !current_recruit
+        if current_user.id != @curriculum.user_id
+          respond_to do |format|
+            format.html { redirect_to root_path, notice: 'No tiene permitido entrar a esta vista.' }
+            format.js { render js: "nope_url()" }
+          end
         end
       end
     end

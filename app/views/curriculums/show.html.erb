@@ -1,103 +1,54 @@
-<div class="curriculum_container mdl-grid">
-  <div class="curriculum_item name_curriculum mdl-cell mdl-cell--12-col">
-    <p><%= @curriculum.nombre %></p>
-  </div>
+<div class="curriculum_container flex">
+  <div class="curriculum_item name_curriculum">
+    <div class="main_info flex centerY column">
+      <h3><%= @curriculum.nombre %></h3>
 
-  <div class="curriculum_item email_curriculum mdl-cell mdl-cell--12-col">
-    <p>
-      Email<br>
-      <span><%= @curriculum.email %></span>
-    </p>
-  </div>
+      <div class="hr_fake"></div>
 
-  <div class="curriculum_item edad_curriculum mdl-cell mdl-cell--3-col">
-    <p>
-      Edad<br>
-      <span><%= @curriculum.edad %></span>
-    </p>
-  </div>
+      <div class="main_user_data flex">
+        <p class="mini_text"><%= "#{@curriculum.direccion}, #{@curriculum.ciudad}, #{@curriculum.estado}" %></p>
+        <p class="mini_text"><%= "#{@curriculum.telefono}, #{@curriculum.celular}" %></p>
+        <p class="mini_text"><%= "#{@curriculum.email}" %></p>
+      </div>
+    </div>
+    <div class="other_info">
 
-  <div class="curriculum_item sexo_curriculum mdl-cell mdl-cell--3-col">
-    <p>
-      Sexo<br>
-      <span><%= @curriculum.sexo %></span>
-    </p>
-  </div>
+      <div class="hr_fake"></div>
 
-  <div class="curriculum_item tel_curriculum mdl-cell mdl-cell--3-col">
-    <p>
-      Telefono<br>
-      <span><%= @curriculum.telefono %></span>
-    </p>
-  </div>
+      <div class="personal_info">
+        <h4 class="tag_text">Información personal</h4>
+        <p><span><%= "Sexo: #{@curriculum.sexo}" %></span><span style="margin-left: 30px;"><%= "Edad: #{@curriculum.edad}" %></span></p>
+        <!-- Información personal -->
+        <p><%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." %></p>
+      </div>
 
-  <div class="curriculum_item cel_curriculum mdl-cell mdl-cell--3-col">
-    <p>
-      Celular<br>
-      <span><%= @curriculum.celular %></span>
-    </p>
-  </div>
+      <div class="hr_fake"></div>
 
-  <div class="curriculum_item direccion_curriculum mdl-cell mdl-cell--8-col">
-    <p>
-      Direccion<br>
-      <span><%= "#{@curriculum.direccion}, #{@curriculum.ciudad}, #{@curriculum.estado}" %></span>
-    </p>
-  </div>
+      <div class="school_info">
+        <h4 class="tag_text">Información escolar</h4>
+        <p><%= "Grado de estudios: #{@curriculum.grado_estudios}" %></p>
+        <p><%= "Escuela: #{@curriculum.institucion_educativa}" %></p>
+        <p><%= "Especialidad: #{@curriculum.especialidad}" %></p>
+      </div>
 
-  <div class="curriculum_item cp_curriculum mdl-cell mdl-cell--4-col">
-    <p>
-      Codigo postal<br>
-      <span><%= @curriculum.codigo_postal %></span>
-    </p>
-  </div>
+      <div class="hr_fake"></div>
 
-  <div class="curriculum_item cp_curriculum mdl-cell mdl-cell--4-col">
-    <p>
-      Especialidad<br>
-      <span><%= @curriculum.especialidad %></span>
-    </p>
-  </div>
+      <div class="experiense_info">
+        <h4 class="tag_text">Experiencia laboral</h4>
+        <p><%= "Ultimo lugar de trabajo: Ultimo lugar de trabajo" %></p>
+        <!-- Descripcion del empleo -->
+        <p><%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." %></p>
+        <p><%= "Experiencia en el area: #{@curriculum.experiencia_laboral} años" %></p>
+      </div>
 
-  <div class="curriculum_item cp_curriculum mdl-cell mdl-cell--4-col">
-    <p>
-      Grado de estudios<br>
-      <span><%= @curriculum.grado_estudios %></span>
-    </p>
-  </div>
+      <div class="hr_fake"></div>
 
-  <div class="curriculum_item cp_curriculum mdl-cell mdl-cell--4-col">
-    <p>
-      Sueldo deceado<br>
-      <span><%= @curriculum.sueldo_dec %></span>
-    </p>
+      <div class="professional_info">
+        <h4 class="tag_text">Información profecional</h4>
+        <p>Herramientas que domina:</p>
+        <p><%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." %></p>
+        <p><%= "Sueldo deceado: $#{@curriculum.sueldo_dec}" %></p>
+        <p><%= "Dominio del inglés: #{@curriculum.english_level}%" %></p>
+      </div>
+    </div>
   </div>
-
-  <div class="curriculum_item cp_curriculum mdl-cell mdl-cell--12-col">
-    <p>
-      Herramientas usadas<br>
-      <span><%= @curriculum.herramientas_usadas %></span>
-    </p>
-  </div>
-
-  <div class="curriculum_item cp_curriculum mdl-cell mdl-cell--2-col">
-    <p>
-      Experiencia laboral<br>
-      <span><%= @curriculum.experiencia_laboral %></span>
-    </p>
-  </div>
-
-  <div class="curriculum_item cp_curriculum mdl-cell mdl-cell--7-col">
-    <p>
-      Institución educativa<br>
-      <span><%= @curriculum.institucion_educativa %></span>
-    </p>
-  </div>
-
-  <div class="curriculum_item cp_curriculum mdl-cell mdl-cell--3-col">
-    <p>
-      Idiomas<br>
-      <span><%= @curriculum.idiomas %></span>
-    </p>
-  </div>
-</div>

@@ -27,8 +27,10 @@ main{
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100vh;
+  &.login_main{
+    width: 100% !important;
+  }
 }
 
 .this_is_a_login_form{
@@ -39,7 +41,8 @@ main{
   }
 }
 
-.actions input{
+.actions input,
+.custom_button{
   @include button(normal);
 }
 
@@ -71,4 +74,26 @@ span.strong{
 
 .mdl-textfield__input{
   border-bottom-color: rgba(#000,.3) !important;
+}
+
+.lateral_space{
+  margin: 0 80px;
+}
+
+.this_is_a_login_form{
+  h2{
+    margin-bottom: 5px;
+  }
+  p{
+    font-size: 25px;
+    color: $main_color;
+  }
+}
+
+.tag_text{
+  color: $main_color;
+}
+
+h4{
+  text-align: center;
 }

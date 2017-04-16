@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409012322) do
+ActiveRecord::Schema.define(version: 20170415013624) do
 
   create_table "curriculums", force: :cascade do |t|
     t.string   "nombre"
@@ -31,9 +31,21 @@ ActiveRecord::Schema.define(version: 20170409012322) do
     t.integer  "user_id"
     t.string   "estado"
     t.string   "experiencia_laboral"
-    t.string   "idiomas"
     t.string   "institucion_educativa"
+    t.integer  "english_level"
     t.index ["user_id"], name: "index_curriculums_on_user_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string   "state"
+    t.string   "speciality"
+    t.integer  "min_age"
+    t.integer  "max_age"
+    t.string   "sex"
+    t.integer  "english_level"
+    t.string   "grade"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "recruits", force: :cascade do |t|
