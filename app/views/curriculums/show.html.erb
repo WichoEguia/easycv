@@ -1,4 +1,4 @@
-<div class="curriculum_container flex">
+<div class="curriculum_container flex column">
   <div class="curriculum_item name_curriculum">
     <div class="main_info flex centerY column">
       <h3><%= @curriculum.nombre %></h3>
@@ -13,43 +13,68 @@
     </div>
     <div class="other_info">
 
-      <div class="hr_fake"></div>
+    <div class="hr_fake"></div>
 
-      <div class="personal_info">
-        <h4 class="tag_text">Información personal</h4>
-        <p><span><%= "Sexo: #{@curriculum.sexo}" %></span><span style="margin-left: 30px;"><%= "Edad: #{@curriculum.edad}" %></span></p>
-        <% if @curriculum.personal_information.present? %>
-          <p>Sobre mi</p>
-          <p><%= @curriculum.personal_information %></p>
-        <% end %>
-      </div>
+    <div class="personal_info">
+      <h4 class="tag_text">Información personal</h4>
+      <p><span><%= "Sexo: #{@curriculum.sexo}" %></span><span style="margin-left: 30px;"><%= "Edad: #{@curriculum.edad}" %></span></p>
+      <% if @curriculum.personal_information.present? %>
+        <p>Sobre mi</p>
+        <p><%= @curriculum.personal_information %></p>
+      <% end %>
+    </div>
 
-      <div class="hr_fake"></div>
+    <div class="hr_fake"></div>
 
-      <div class="school_info">
-        <h4 class="tag_text">Información escolar</h4>
-        <p><%= "Grado de estudios: #{@curriculum.grado_estudios}" %></p>
-        <p><%= "Escuela: #{@curriculum.institucion_educativa}" %></p>
-        <p><%= "Especialidad: #{@curriculum.especialidad}" %></p>
-      </div>
+    <div class="school_info">
+      <h4 class="tag_text">Información escolar</h4>
+      <p><%= "Grado de estudios: #{@curriculum.grado_estudios}" %></p>
+      <p><%= "Escuela: #{@curriculum.institucion_educativa}" %></p>
+      <p><%= "Especialidad: #{@curriculum.especialidad}" %></p>
+    </div>
 
-      <div class="hr_fake"></div>
+    <div class="hr_fake"></div>
 
-      <div class="experiense_info">
-        <h4 class="tag_text">Experiencia laboral</h4>
-        <p><%= "Ultimo lugar de trabajo: #{@curriculum.last_work}" if @curriculum.last_work.present? %></p>
-        <p><%= @curriculum.last_work_description if @curriculum.last_work_description.present? %></p>
-        <p><%= "Experiencia en el area: #{@curriculum.experiencia_laboral} años" %></p>
-      </div>
+    <div class="experiense_info">
+      <h4 class="tag_text">Experiencia laboral</h4>
+      <p><%= "Ultimo lugar de trabajo: #{@curriculum.last_work}" %></p>
+      <p><%= @curriculum.last_work_description %></p>
+      <p><%= "Experiencia en el area: #{@curriculum.experiencia_laboral} años" %></p>
+    </div>
 
-      <div class="hr_fake"></div>
+    <div class="hr_fake"></div>
 
-      <div class="professional_info">
-        <h4 class="tag_text">Información profecional</h4>
-        <p>Herramientas que domina:</p>
-        <p><%= @curriculum.herramientas_usadas %></p>
-        <p><%= "Sueldo deceado: $#{@curriculum.sueldo_dec}" %></p>
-        <p><%= "Dominio del inglés: #{@curriculum.english_level}%" %></p>
-      </div>
+    <div class="professional_info">
+      <h4 class="tag_text">Información profecional</h4>
+      <p>Herramientas que domina:</p>
+      <p><%= @curriculum.herramientas_usadas %></p>
+      <p><%= "Sueldo deceado: $#{@curriculum.sueldo_dec}" %></p>
+      <p><%= "Dominio del inglés: #{@curriculum.english_level}%" %></p>
     </div>
   </div>
+</div>
+
+<% if current_recruit %>
+  <div class="recruit_controls flex">
+    <%= link_to "Regresar", :back, class: "success_button" %>
+    <button type="button" class="assign_appointment">Asignar cita</button>
+    <%= link_to "Borrar curriculum", @curriculum, method: :delete, data: { confirm: '¿Seguro de eliminar este curriculum?' }, class: "reject_appointment" %>
+  </div>
+
+  <!-- Modal para establecer cita -->
+
+  <div class="modal_container">
+    <div class="modal_title">
+      <p>Asignar cita</p>
+    </div>
+    <div class="modal_title">
+      <%= form_tag appointment_path, method: "get" do %>
+        <%= hidden_field_tag :curriculum_id, @curriculum.id %>
+        <%= hidden_field_tag :recruit_id, current_recruit.id %>
+        <%= date_field_tag :date_appointment, params[:date_appointment] %>
+        <%= time_field_tag :time_appointment, params[:time_appointment] %>
+        <%= submit_tag "Establecer cita" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

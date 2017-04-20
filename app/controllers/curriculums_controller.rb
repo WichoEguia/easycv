@@ -66,37 +66,58 @@ class CurriculumsController < ApplicationController
     end
   end
 
+  def date_appointment
+    Curriculum.set_relation
+    @curriculum = Curriculum.find(params[:curriculum_id])
+    @curriculum.update(date_appointment: params[:date_appointment],time_appointment: params[:time_appointment],recruit_id: params[:recruit_id],has_date: true)
+    respond_to do |format|
+      format.html { redirect_to new_list_path, notice: "Se ha establecido cita para el día #{@curriculum.date_appointment.strftime('%F')} a las #{@curriculum.time_appointment.strftime('%H:%M')}" }
+    end
+  end
+
+  def remove_date_appointment
+    @curriculum = Curriculum.find(params[:id])
+    @curriculum.update(date_appointment: nil, time_appointment: nil, recruit_id: nil, has_date: false)
+    respond_to do |format|
+      format.html { redirect_to diary_path }
+    end
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_curriculum
-      @curriculum = Curriculum.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def curriculum_params
-      params.require(:curriculum).permit(:nombre, :edad, :sexo, :direccion, :codigo_postal, :english_level, :experiencia_laboral, :institucion_educativa, :ciudad, :estado, :email, :telefono, :celular, :especialidad, :grado_estudios, :sueldo_dec, :herramientas_usadas, :last_work_description, :personal_information, :last_work)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_curriculum
+    @curriculum = Curriculum.find(params[:id])
+  end
 
-    # Validando que el curriculum le pertenece al usuario, si no es así se
-    # redireccionará al usuario a su perfil.
-    def validate_user_curriculum
-      if !current_recruit
-        if current_user.id != @curriculum.user_id
-          respond_to do |format|
-            format.html { redirect_to root_path, notice: 'No tiene permitido entrar a esta vista.' }
-            format.js { render js: "nope_url()" }
-          end
-        end
-      end
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def curriculum_params
+    params.require(:curriculum).permit(:nombre, :edad, :sexo, :direccion, :codigo_postal, :english_level,
+                                       :experiencia_laboral, :institucion_educativa, :ciudad, :estado, :email,
+                                       :telefono, :celular, :especialidad, :grado_estudios, :sueldo_dec,
+                                       :herramientas_usadas, :last_work_description, :personal_information, :last_work)
+  end
 
-    #Evitando que algun usuario común entre a la lista de curriculums
-    def protect_curriculums_list
-      if current_user || current_recruit
+  # Validando que el curriculum le pertenece al usuario, si no es así se
+  # redireccionará al usuario a su perfil.
+  def validate_user_curriculum
+    if !current_recruit
+      if current_user.id != @curriculum.user_id
         respond_to do |format|
           format.html { redirect_to root_path, notice: 'No tiene permitido entrar a esta vista.' }
           format.js { render js: "nope_url()" }
         end
       end
     end
+  end
+
+  #Evitando que algun usuario común entre a la lista de curriculums
+  def protect_curriculums_list
+    if current_user || current_recruit
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'No tiene permitido entrar a esta vista.' }
+        format.js { render js: "nope_url()" }
+      end
+    end
+  end
 end

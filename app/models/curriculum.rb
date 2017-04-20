@@ -8,4 +8,9 @@ class Curriculum < ApplicationRecord
   validates_format_of :email, with: VALID_EMAIL_REGEX
   validates :edad, inclusion: {in: (1..80), message: "no es valida"}
   belongs_to :user, {foreign_key: "user_id"}
+
+  def self.set_relation
+    belongs_to :recruit, {foreign_key: "recruit_id"}
+  end
+
 end

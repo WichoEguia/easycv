@@ -1,0 +1,28 @@
+<h3>Agenda</h3>
+
+<% curriculums_array = [] %>
+<% @curriculums.each do |c| %>
+  <% curriculums_array << c if c.has_date %>
+<% end %>
+
+<% if !curriculums_array.empty? %>
+  <% curriculums_array.each do |c| %>
+    <div class="mdl-cell mdl-cell--12-col mdl-grid">
+      <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <div class="">
+          <p style="margin:10px;font-size:20px;" class="tag_text"><%= "#{c.nombre}" %></p>
+          <p style="margin:10px;font-size:18px;"><%= "#{c.email}" %></p>
+          <p style="margin:10px;font-size:18px;"><%= "#{c.telefono}, #{c.celular}" %></p>
+          <p style="margin:10px;"><%= "Fecha: #{c.date_appointment.strftime('%F')}" %></p>
+          <p style="margin:10px;"><%= "Hora: #{c.time_appointment.strftime('%H:%M')}" %></p>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <%= link_to "Ver curriculum", c, class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
+          <%= link_to "Cancelar cita", remove_appointment_path(id: c.id), class: "mdl-button mdl-button--colored error mdl-js-button mdl-js-ripple-effect" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p style="font-size:25px;margin-top:25px;color:tomato;">Aun no tiene fechas agendadas.</p>
+<% end %>

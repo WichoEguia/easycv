@@ -37,6 +37,8 @@
     background: $main_color;
   } @else if $type == "error" {
     background: $error_color;
+  } @else if $type == "success" {
+    background: $success_color;
   }
   &:hover{
     @include shadow(3);

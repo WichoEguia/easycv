@@ -54,6 +54,10 @@
           <i class="material-icons">search</i>Busqueda
         <% end %>
 
+        <%= link_to diary_path, class: "mdl-navigation__link" do %>
+          <i class="material-icons">access_time</i>Agenda
+        <% end %>
+
         <% if current_recruit.is_admin %>
 
           <%= link_to new_recruit_registration_path, class:"mdl-navigation__link" do %>

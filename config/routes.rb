@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   resources :lists
   root 'home#index'
   get 'recruits/root', to: 'home#search'
+  get 'appointment', to: 'curriculums#date_appointment'
+  get 'diary', to: 'home#diary'
+  get 'remove_appointment', to: 'curriculums#remove_date_appointment'
 end

@@ -1,11 +1,15 @@
 class HomeController < ApplicationController
   before_action :redirect_to_search_view, only: [:index]
   def index
-
+    @curriculum = Curriculum.where(user_id: current_user.id)
   end
 
   def search
 
+  end
+
+  def diary
+    @curriculums = Curriculum.all
   end
 
   protected

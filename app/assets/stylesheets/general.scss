@@ -42,7 +42,7 @@ main{
 }
 
 .actions input,
-.custom_button{
+.success_button{
   @include button(normal);
 }
 
@@ -90,8 +90,12 @@ span.strong{
   }
 }
 
-.tag_text{
-  color: $main_color;
+.tag_text,
+.mdl-button--colored{
+  color: $main_color !important;
+  &.error{
+    color: $error_color !important;
+  }
 }
 
 h4{

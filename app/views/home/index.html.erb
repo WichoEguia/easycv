@@ -16,17 +16,20 @@
       <%# link_to "Editar", edit_user_registration_path, class: "custom_button" %>
     <% end %>
 
-    <h3>Situación</h3>
+    <% if @curriculum %>
+      <h3>Situación</h3>
 
-    <p>Cita aceptada: <span class="strong">SI/NO</span></p>
-    <!-- Contenido visible en caso de que la cita sea aceptada -->
-    <p>Fecha de cita: <span class="strong">dd-mm-aaaa hh:mm</span></p>
+      <p>Cita aceptada: <span class="strong"> <%= r = @curriculum[0].has_date ? "SI" : "NO" %> </span></p>
+      <!-- Contenido visible en caso de que la cita sea aceptada -->
+      <p>Fecha de cita: <span class="strong"> <%= r = @curriculum[0].has_date ? "#{@curriculum[0].date_appointment.strftime('%F')} a las #{@curriculum[0].time_appointment.strftime('%H:%M')}" : "No tiene fecha asignada" %> </span></p>
+    <% end %>
 
-    <h3>Información del recluta</h3>
+    <% if @curriculum && @curriculum[0].has_date %>
+      <h3>Información del recluta</h3>
 
-    <p>Atendido por: <span class="strong">Nombre de recluta</span></p>
-    <p>Telefono: <span class="strong">Telefono de recluta</span></p>
-    <p>Email: <span class="strong">Email de recluta</span></p>
-    <!-- Fin -->
+      <p>Atendido por: <span class="strong"> <%= @curriculum[0].recruit.name %> </span></p>
+      <p>Email: <span class="strong"> <%= @curriculum[0].recruit.email %> </span></p>
+      <p>Telefono: <span class="strong"> <%# @curriculum[0].recruit.email %> </span></p>
+    <% end %>
   </div>
 </div>

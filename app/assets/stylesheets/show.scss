@@ -55,3 +55,22 @@
     width: 100%;
   }
 }
+
+.recruit_controls{
+  width: 100%;
+  justify-content: space-around;
+  margin: 40px 0;
+  a, button{
+    width: 200px;
+    line-height: 20px;
+    text-align: center;
+  }
+}
+
+.assign_appointment{
+  @include button("success");
+}
+
+.reject_appointment{
+  @include button("error");
+}
