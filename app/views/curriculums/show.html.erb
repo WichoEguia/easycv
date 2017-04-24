@@ -54,27 +54,40 @@
   </div>
 </div>
 
-<% if current_recruit %>
+<% if !current_recruit.nil? %>
   <div class="recruit_controls flex">
     <%= link_to "Regresar", :back, class: "success_button" %>
-    <button type="button" class="assign_appointment">Asignar cita</button>
+    <% if !@curriculum.has_date %>
+      <button type="button" class="assign_appointment">Asignar cita</button>
+    <% end %>
     <%= link_to "Borrar curriculum", @curriculum, method: :delete, data: { confirm: '¿Seguro de eliminar este curriculum?' }, class: "reject_appointment" %>
   </div>
 
   <!-- Modal para establecer cita -->
 
   <div class="modal_container">
-    <div class="modal_title">
-      <p>Asignar cita</p>
-    </div>
-    <div class="modal_title">
-      <%= form_tag appointment_path, method: "get" do %>
-        <%= hidden_field_tag :curriculum_id, @curriculum.id %>
-        <%= hidden_field_tag :recruit_id, current_recruit.id %>
-        <%= date_field_tag :date_appointment, params[:date_appointment] %>
-        <%= time_field_tag :time_appointment, params[:time_appointment] %>
-        <%= submit_tag "Establecer cita" %>
-      <% end %>
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal_title">
+        <h3>Asignar cita</h3>
+      </div>
+      <div class="modal_body">
+        <%= form_tag appointment_path, method: "get", html: { class: "modal_appointment" } do %>
+          <%= hidden_field_tag :curriculum_id, @curriculum.id %>
+          <%= hidden_field_tag :recruit_id, current_recruit.id %>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+            <label class="mdl-textfield__label">Fecha</label>
+            <%= date_field_tag :date_appointment, params[:date_appointment], class: "mdl-textfield__input datepicker modal_date_picker" %>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+            <label class="mdl-textfield__label">Hora</label>
+            <%= time_field_tag :time_appointment, params[:time_appointment], class: "mdl-textfield__input timepicker modal_time_picker" %>
+          </div>
+          <div class="actions">
+            <%= submit_tag "Establecer cita", class: "set_appointment" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>

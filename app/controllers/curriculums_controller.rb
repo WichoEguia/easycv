@@ -105,7 +105,6 @@ class CurriculumsController < ApplicationController
       if current_user.id != @curriculum.user_id
         respond_to do |format|
           format.html { redirect_to root_path, notice: 'No tiene permitido entrar a esta vista.' }
-          format.js { render js: "nope_url()" }
         end
       end
     end
@@ -116,7 +115,6 @@ class CurriculumsController < ApplicationController
     if current_user || current_recruit
       respond_to do |format|
         format.html { redirect_to root_path, notice: 'No tiene permitido entrar a esta vista.' }
-        format.js { render js: "nope_url()" }
       end
     end
   end

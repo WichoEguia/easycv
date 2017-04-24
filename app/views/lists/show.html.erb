@@ -4,7 +4,7 @@
 
 <!-- <div class="flex centerX"> -->
 <% if !@list.search_curriculums.empty? %>
-  <% @list.search_curriculums.each do |c| %>
+  <% @list.search_curriculums.reverse_each do |c| %>
     <div class="mdl-cell mdl-cell--12-col mdl-grid">
       <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
         <div>
