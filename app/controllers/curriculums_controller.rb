@@ -77,10 +77,11 @@ class CurriculumsController < ApplicationController
 
   def remove_date_appointment
     @curriculum = Curriculum.find(params[:id])
-    @curriculum.update(date_appointment: nil, time_appointment: nil, recruit_id: nil, has_date: false)
-    respond_to do |format|
-      format.html { redirect_to diary_path }
-    end
+    @curriculum.date_appointment = nil
+    @curriculum.time_appointment = nil
+    @curriculum.has_date = false
+    @curriculum.save
+    redirect_to diary_path
   end
 
   private

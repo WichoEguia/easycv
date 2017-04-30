@@ -2,7 +2,7 @@
   <% if curriculum.errors.any? %>
     <div id="error_explanation" data-url="hi">
       <%= javascript_tag do %>
-        swal("Error al enviar :(","Revisa los datos introducidos para poder continuar","warning");
+        swal("Error al enviar","Revisa los datos introducidos para poder continuar","error");
       <% end %>
     </div>
   <% end %>

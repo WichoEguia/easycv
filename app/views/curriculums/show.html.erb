@@ -1,6 +1,7 @@
 <div class="curriculum_container flex column">
   <div class="curriculum_item name_curriculum">
     <div class="main_info flex centerY column">
+
       <h3><%= @curriculum.nombre %></h3>
 
       <div class="hr_fake"></div>
@@ -60,7 +61,9 @@
     <% if !@curriculum.has_date %>
       <button type="button" class="assign_appointment">Asignar cita</button>
     <% end %>
-    <%= link_to "Borrar curriculum", @curriculum, method: :delete, data: { confirm: '¿Seguro de eliminar este curriculum?' }, class: "reject_appointment" %>
+    <% if current_recruit.is_admin %>
+      <%= link_to "Borrar curriculum", @curriculum, method: :delete, data: { confirm: '¿Seguro de eliminar este curriculum?' }, class: "reject_appointment" %>
+    <% end %>
   </div>
 
   <!-- Modal para establecer cita -->

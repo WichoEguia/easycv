@@ -1,4 +1,4 @@
-<% if notice %>
+<% if notice && notice != "Signed in successfully." %>
   <%= javascript_tag do %>
     var notice = '<%= notice %>'
     swal("Exito",notice,"success");
