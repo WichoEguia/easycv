@@ -9,7 +9,20 @@ class HomeController < ApplicationController
   end
 
   def diary
-    @curriculums = Curriculum.all
+    @curriculums = Curriculum.where(recruit_id: current_recruit.id)
+  end
+
+  def new_recruit
+
+  end
+
+  def create_recruit
+    @recruit = Recruit.new(name: params[:name], lastname: params[:lastname], email: params[:email], phone: params[:phone], is_admin: true, password: params[:password], password_confirmation: params[:password])
+    @recruit.save
+    @recruit.key = "#{@recruit.id}#{@recruit.name[0].upcase}#{@recruit.lastname[0].upcase}EASYCV"
+    if @recruit.save
+      redirect_to new_recruit_path
+    end
   end
 
   protected

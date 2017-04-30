@@ -28,6 +28,10 @@ document.addEventListener("turbolinks:load", function() {
   $('.datepicker').pickadate();
   $('.timepicker').pickatime();
 
+  $(".datepicker, .timepicker").change(function(){
+    $(this).parent().addClass("is-focused");
+  });
+
   var modal = $(".modal_container");
 
   $(".assign_appointment").click(function(){
@@ -47,6 +51,30 @@ document.addEventListener("turbolinks:load", function() {
       return false;
     }else{
       return true;
+    }
+  });
+
+  $(".password_generate").click(function(){
+    var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
+    var key = "";
+    for(var i=0;i<6;i++){
+      key += letters[Math.floor(Math.random() * letters.length)];
+    }
+    $(".password_text_field").parent().addClass("is-focused");
+    $(".password_text_field").val(key);
+  });
+
+  $(".button_new_recruit").click(function(){
+    name = $(".name_text_field").val();
+    lastname = $(".lastname_text_field").val();
+    email = $(".email_text_field").val();
+    phone = $(".phone_text_field").val();
+    pass = $(".password_text_field").val();
+    if(name == "" || lastname == "" || email == "" || phone == "" || pass == ""){
+      swal("Error al solicitar petición","Asegurate de llenar todos los campos","error");
+      return false;
+    }else{
+      swal("Exito","Usuario creado","success");
     }
   });
 

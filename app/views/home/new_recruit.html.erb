@@ -1,0 +1,43 @@
+<h3>Crear Recluta</h3>
+
+<%= form_tag new_recruit_create_path, method: :get, class: "navbar-form navbar-left search-form" do %>
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+      <label class="mdl-textfield__label">Nombre:</label>
+      <%= text_field_tag :name, params[:name],class: "name_text_field mdl-textfield__input" %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+      <label class="mdl-textfield__label">Apellido</label>
+      <%= text_field_tag :lastname, params[:lastname],class: "lastname_text_field mdl-textfield__input" %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+      <label class="mdl-textfield__label">Email</label>
+      <%= email_field_tag :email, params[:email],class: "email_text_field mdl-textfield__input" %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+      <label class="mdl-textfield__label">Telefono</label>
+      <%= text_field_tag :phone, params[:phone],class: "phone_text_field mdl-textfield__input" %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+      <label class="mdl-textfield__label">Contraseña</label>
+      <%= text_field_tag :password, params[:password], class: "password_text_field mdl-textfield__input", readonly: true %>
+    </div>
+    <button type="button" class="password_generate normal_button">Generar contraseña</button>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Crear Recluta", class: "button_new_recruit" %>
+  </div>
+<% end %>

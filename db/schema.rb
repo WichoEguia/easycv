@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20170416054605) do
     t.string   "experiencia_laboral"
     t.string   "institucion_educativa"
     t.integer  "english_level"
-    t.integer  "has_date_id",           default: 0
     t.text     "last_work_description"
     t.text     "personal_information"
     t.string   "last_work"
@@ -41,7 +40,6 @@ ActiveRecord::Schema.define(version: 20170416054605) do
     t.datetime "time_appointment"
     t.integer  "recruit_id"
     t.boolean  "has_date",              default: false
-    t.index ["has_date_id"], name: "index_curriculums_on_has_date_id"
     t.index ["recruit_id"], name: "index_curriculums_on_recruit_id"
     t.index ["user_id"], name: "index_curriculums_on_user_id"
   end

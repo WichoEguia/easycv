@@ -101,3 +101,8 @@ span.strong{
 h4{
   text-align: center;
 }
+
+.password_generate{
+  @include button(normal);
+  height: 50px;
+}
