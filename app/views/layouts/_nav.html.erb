@@ -34,8 +34,10 @@
 
         <% else %>
 
-          <%= link_to new_curriculum_path, class: "button mdl-navigation__link" do %>
-            <i class="material-icons">note_add</i>Crear curriculum
+          <% if !current_user.baja %>
+            <%= link_to new_curriculum_path, class: "button mdl-navigation__link" do %>
+              <i class="material-icons">note_add</i>Crear curriculum
+            <% end %>
           <% end %>
 
         <% end %>
@@ -59,6 +61,10 @@
         <% end %>
 
         <% if current_recruit.is_admin %>
+
+          <%= link_to recruit_list_path, class:"mdl-navigation__link" do %>
+            <i class="material-icons">person</i>Reclutas
+          <% end %>
 
           <%= link_to new_recruit_path, class:"mdl-navigation__link" do %>
             <i class="material-icons">person_add</i>Añadir usuario

@@ -32,14 +32,20 @@ document.addEventListener("turbolinks:load", function() {
     $(this).parent().addClass("is-focused");
   });
 
-  var modal = $(".modal_container");
+  var modal_appointment = $(".modal_appointment_container");
+  var modal_description = $(".modal_description_container");
 
   $(".assign_appointment").click(function(){
-    modal.addClass("active");
+    modal_appointment.addClass("active");
   });
 
   $(".close").click(function(){
-    modal.removeClass("active");
+    modal_appointment.removeClass("active");
+    modal_description.removeClass("active");
+  });
+
+  $(".drop_cv").click(function(){
+    modal_description.addClass("active");
   });
 
   $(".set_appointment").click(function(e){

@@ -1,0 +1,16 @@
+<h3>Reclutas</h3>
+
+<% if !@recruits.empty? %>
+  <% @recruits.each do |c| %>
+    <div class="mdl-cell mdl-cell--12-col mdl-grid">
+      <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <div>
+          <p><strong><%= "#{c.name}" %></strong></p>
+          <p><%= "#{c.key}" %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p style="font-size:25px;margin-top:25px;color:tomato;">No hay reclutas.</p>
+<% end %>

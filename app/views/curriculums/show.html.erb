@@ -62,13 +62,14 @@
       <button type="button" class="assign_appointment">Asignar cita</button>
     <% end %>
     <% if current_recruit.is_admin %>
-      <%= link_to "Borrar curriculum", @curriculum, method: :delete, data: { confirm: '¿Seguro de eliminar este curriculum?' }, class: "reject_appointment" %>
+      <button type="button" class="reject_appointment drop_cv">Eliminar curriculum</button>
+      <%# link_to "Borrar curriculum", @curriculum, method: :delete, data: { confirm: '¿Seguro de eliminar este curriculum?' }, class: "reject_appointment" %>
     <% end %>
   </div>
 
   <!-- Modal para establecer cita -->
 
-  <div class="modal_container">
+  <div class="modal_appointment_container">
     <div class="modal-content">
       <span class="close">&times;</span>
       <div class="modal_title">
@@ -88,6 +89,27 @@
           </div>
           <div class="actions">
             <%= submit_tag "Establecer cita", class: "set_appointment" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal_description_container">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal_title">
+        <h3>Justificacion</h3>
+      </div>
+      <div class="modal_body">
+        <%= form_tag dropcv_path, method: "get", html: { class: "modal_drop_cv" } do %>
+        <%= hidden_field_tag :curriculum_id, @curriculum.id %>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+          <label class="mdl-textfield__label">Describe razón de la baja</label>
+          <%= text_area_tag :description, params[:description], class: "mdl-textfield__input", rows: 5, style: "width:100%" %>
+        </div>
+          <div class="actions">
+            <%= submit_tag "Eliminar curriculum", class: "reject_appointment" %>
           </div>
         <% end %>
       </div>

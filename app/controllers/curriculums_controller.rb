@@ -70,6 +70,8 @@ class CurriculumsController < ApplicationController
     Curriculum.set_relation
     @curriculum = Curriculum.find(params[:curriculum_id])
     @curriculum.update(date_appointment: params[:date_appointment],time_appointment: params[:time_appointment],recruit_id: params[:recruit_id],has_date: true)
+    @curriculum.user.status = 1
+    @curriculum.user.save!
     respond_to do |format|
       format.html { redirect_to new_list_path, notice: "Se ha establecido cita para el día #{@curriculum.date_appointment.strftime('%F')} a las #{@curriculum.time_appointment.strftime('%H:%M')}" }
     end
@@ -82,6 +84,17 @@ class CurriculumsController < ApplicationController
     @curriculum.has_date = false
     @curriculum.save
     redirect_to diary_path
+  end
+
+  def drop_cv
+    @curriculum = Curriculum.find(params[:curriculum_id])
+    @user = @curriculum.user
+    @user.baja = true
+    @user.description = params[:description]
+    @user.status = 2
+    @user.save
+    @curriculum.destroy!
+    redirect_to recruits_root_path
   end
 
   private

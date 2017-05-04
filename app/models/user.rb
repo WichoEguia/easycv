@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates :email, uniqueness: true
   has_one :curriculum
+  enum status: [:not_started,:process,:cancelled]
 end
