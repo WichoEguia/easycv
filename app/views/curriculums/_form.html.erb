@@ -1,4 +1,4 @@
-<%= form_for(curriculum) do |f| %>
+<%= form_for curriculum, html: { multipart: true } do |f| %>
   <% if curriculum.errors.any? %>
     <div id="error_explanation" data-url="hi">
       <%= javascript_tag do %>
@@ -24,8 +24,6 @@
 
   <div class="field mdl-grid">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-      <!-- <%= f.label :sexo, class: "mdl-textfield__label" %>
-      <%= f.text_field :sexo, class: "mdl-textfield__input" %> -->
       <span style="font-size:12px;color:rgb(63,81,181);">Sexo:</span><br>
       <%= f.radio_button :sexo, 'Masculino', :checked => true %>
       <%= label :sexo, 'Masculino' %>
@@ -37,7 +35,7 @@
 
   <div class="field mdl-grid">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-      <%= f.label :personal_information, class: "mdl-textfield__label" %>
+      <%= f.label :personal_information, "Información personal", class: "mdl-textfield__label" %>
       <%= f.text_area :personal_information, class: "mdl-textfield__input", rows: 3 %>
     </div>
   </div>
@@ -52,7 +50,7 @@
       <%= f.number_field :codigo_postal, class: "mdl-textfield__input" %>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
-      <%= f.label :ciudad, class: "mdl-textfield__label" %>
+      <%= f.label :ciudad, "Estado", class: "mdl-textfield__label" %>
       <%= f.text_field :ciudad, class: "mdl-textfield__input" %>
     </div>
   </div>
@@ -102,7 +100,7 @@
 
   <div class="field mdl-grid">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-      <%= f.label :herramientas_usadas, class: "mdl-textfield__label" %>
+      <%= f.label :herramientas_usadas, "Hrramientas, software y demas funciones que domina", class: "mdl-textfield__label" %>
       <%= f.text_area :herramientas_usadas, class: "mdl-textfield__input", rows: 3 %>
     </div>
   </div>
@@ -127,14 +125,14 @@
 
   <div class="field mdl-grid">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
-      <%= f.label :last_work, class: "mdl-textfield__label" %>
+      <%= f.label :last_work, "Ultimo lugar de trabajo", class: "mdl-textfield__label" %>
       <%= f.text_field :last_work, class: "mdl-textfield__input" %>
     </div>
   </div>
 
   <div class="field mdl-grid">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-      <%= f.label :last_work_description, class: "mdl-textfield__label" %>
+      <%= f.label :last_work_description, "Decripcion del ultimo trabajo", class: "mdl-textfield__label" %>
       <%= f.text_area :last_work_description, class: "mdl-textfield__input", rows: 3 %>
     </div>
   </div>

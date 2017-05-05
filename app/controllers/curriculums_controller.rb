@@ -109,7 +109,8 @@ class CurriculumsController < ApplicationController
     params.require(:curriculum).permit(:nombre, :edad, :sexo, :direccion, :codigo_postal, :english_level,
                                        :experiencia_laboral, :institucion_educativa, :ciudad, :estado, :email,
                                        :telefono, :celular, :especialidad, :grado_estudios, :sueldo_dec,
-                                       :herramientas_usadas, :last_work_description, :personal_information, :last_work)
+                                       :herramientas_usadas, :last_work_description, :personal_information,
+                                       :last_work, :interests, :personal_goals)
   end
 
   # Validando que el curriculum le pertenece al usuario, si no es así se

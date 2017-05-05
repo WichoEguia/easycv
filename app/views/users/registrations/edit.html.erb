@@ -8,6 +8,12 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+  <div class="field mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+      <%= f.file_field :photo%>
+    </div>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

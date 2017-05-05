@@ -90,7 +90,9 @@ span.strong{
   }
 }
 
-.tag_text,
+.tag_text{
+  color: #4e4e4e;
+}
 .mdl-button--colored{
   color: $main_color !important;
   &.error{
@@ -105,4 +107,9 @@ h4{
 .password_generate{
   @include button(normal);
   height: 50px;
+}
+
+.rounded_image{
+  @include circle(200px);
+  @include shadow(3);
 }

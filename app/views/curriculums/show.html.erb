@@ -1,18 +1,21 @@
 <div class="curriculum_container flex column">
   <div class="curriculum_item name_curriculum">
-    <div class="main_info flex centerY column">
+  <div class="main_info flex centerY column">
 
-      <h3><%= @curriculum.nombre %></h3>
+    <% if @curriculum.user.photo.file? %>
+      <%= image_tag @curriculum.user.photo.url(:medium) , class: "rounded_image"%>
+    <% end %>
+    <h3><%= @curriculum.nombre %></h3>
 
-      <div class="hr_fake"></div>
+    <div class="hr_fake"></div>
 
-      <div class="main_user_data flex">
-        <p class="mini_text"><%= "#{@curriculum.direccion}, #{@curriculum.ciudad}, #{@curriculum.estado}" %></p>
-        <p class="mini_text"><%= "#{@curriculum.telefono}, #{@curriculum.celular}" %></p>
-        <p class="mini_text"><%= "#{@curriculum.email}" %></p>
-      </div>
+    <div class="main_user_data flex">
+      <p class="mini_text"><%= "#{@curriculum.direccion}, #{@curriculum.ciudad}, #{@curriculum.estado}" %></p>
+      <p class="mini_text"><%= "#{@curriculum.telefono}, #{@curriculum.celular}" %></p>
+      <p class="mini_text"><%= "#{@curriculum.email}" %></p>
     </div>
-    <div class="other_info">
+  </div>
+  <div class="other_info">
 
     <div class="hr_fake"></div>
 

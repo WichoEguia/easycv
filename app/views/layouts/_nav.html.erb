@@ -8,8 +8,12 @@
   <div class="mdl-layout__drawer">
     <div class="headerDrawer centerX centerY flex">
       <div class="userData" id="demo-menu-lower-left">
-        <%= image_tag "Logo_EasyCV.svg" %>
         <% if current_user %>
+          <% if current_user.photo.file? %>
+            <%= image_tag current_user.photo.url(:thumb), class: "rounded_image" %>
+          <% else %>
+            <%= image_tag "Logo_EasyCV.svg", style: "width:100px;" %>  
+          <% end %>
           <span class="mdl-layout-title"><%= "#{current_user.name} #{current_user.lastname}" %></span>
         <% else %>
           <span class="mdl-layout-title"><%= "#{current_recruit.name} #{current_recruit.lastname}" %></span>
