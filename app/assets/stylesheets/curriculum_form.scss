@@ -1,0 +1,25 @@
+@import 'variables';
+@import 'mixins';
+
+.section_seeparator{
+  height: 70px;
+  margin: 10px 0;
+  .line{
+    // flex: auto;
+    height: 1px;
+    background-color: #545454;
+    width: 100%;
+  }
+  p{
+    // flex: auto;
+    margin: 0 10px 0 0;
+    font-size: 25px;
+    display: block;
+    color: #545454;
+    text-transform: full-width;
+  }
+}
+
+label{
+  text-transform: uppercase;
+}
