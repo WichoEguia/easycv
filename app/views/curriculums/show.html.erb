@@ -22,9 +22,34 @@
     <div class="personal_info">
       <h4 class="tag_text">Información personal</h4>
       <p><span><%= "Sexo: #{@curriculum.sexo}" %></span><span style="margin-left: 30px;"><%= "Edad: #{@curriculum.edad}" %></span></p>
+      <hr>
       <% if @curriculum.personal_information.present? %>
-        <p>Sobre mi</p>
+        <p class="data_text">Sobre mi:</p>
         <p><%= @curriculum.personal_information %></p>
+      <% end %>
+      <hr>
+      <% if @curriculum.interests.present? %>
+        <p class="data_text">Intereses y hobies:</p>
+        <p><%= @curriculum.interests %></p>
+      <% end %>
+      <hr>
+      <% if @curriculum.personal_goals.present? %>
+        <p class="data_text">Metas personales:</p>
+        <p><%= @curriculum.personal_goals %></p>
+      <% end %>
+      <hr>
+      <% if !@curriculum.personal_references.empty? %>
+        <p class="data_text">Referencias personales</p>
+        <div class="mdl-grid">
+          <% @curriculum.personal_references.each do |r| %>
+            <div class="mdl-cell mdl-cell--6-col mdl-shadow--2dp" style="padding:10px;">
+              <p><span><%= "nombre: #{r.name}" %></span></p>
+              <p><span><%= "email: #{r.email}" %></span></p>
+              <p><span><%= "tel.: #{r.phone}" %></p>
+              <p><span><%= "Tiempo de conocerlo: #{r.time}" %></span></p>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
 
@@ -34,26 +59,33 @@
       <h4 class="tag_text">Información escolar</h4>
       <p><%= "Grado de estudios: #{@curriculum.grado_estudios}" %></p>
       <p><%= "Escuela: #{@curriculum.institucion_educativa}" %></p>
-      <p><%= "Especialidad: #{@curriculum.especialidad}" %></p>
-    </div>
-
-    <div class="hr_fake"></div>
-
-    <div class="experiense_info">
-      <h4 class="tag_text">Experiencia laboral</h4>
-      <p><%= "Ultimo lugar de trabajo: #{@curriculum.last_work}" %></p>
-      <p><%= @curriculum.last_work_description %></p>
-      <p><%= "Experiencia en el area: #{@curriculum.experiencia_laboral} años" %></p>
+      <p><span><%= "Especialidad: #{@curriculum.especialidad}" %></span><span style="margin-left:30px;"><%= "Titulo obtenido: #{@curriculum.title}" %></span></p>
+      <hr>
+      <% if @curriculum.graduates.present? %>
+        <p class="data_text">Cursos y diplomados:</p>
+        <p><%= @curriculum.graduates %></p>
+      <% end %>
     </div>
 
     <div class="hr_fake"></div>
 
     <div class="professional_info">
       <h4 class="tag_text">Información profecional</h4>
-      <p>Herramientas que domina:</p>
-      <p><%= @curriculum.herramientas_usadas %></p>
-      <p><%= "Sueldo deceado: $#{@curriculum.sueldo_dec}" %></p>
-      <p><%= "Dominio del inglés: #{@curriculum.english_level}%" %></p>
+      <% if @curriculum.herramientas_usadas %>
+        <p>Herramientas, software y demás funciones que domina:</p>
+        <p><%= @curriculum.herramientas_usadas %></p>
+      <% end %>
+      <hr>
+      <% if @curriculum.last_work.present? %>
+        <p><%= "Ultimo trabajo: #{@curriculum.last_work}" %></p>
+        <% if @curriculum.last_work_description.present? %>
+          <p><%= @curriculum.last_work_description %></p>
+        <% end %>
+      <% end %>
+      <hr>
+      <% if @curriculum.experiencia_laboral != 0 %>
+        <p><%= "Experiencia laboral: #{@curriculum.experiencia_laboral} años" %></p>
+      <% end %>
     </div>
   </div>
 </div>

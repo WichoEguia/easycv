@@ -1,0 +1,21 @@
+<div class="nested-fields flex column">
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--4-col">
+      <%= f.label :name, "Nombre", class: "mdl-textfield__label" %>
+      <%= f.text_field :name, class: "mdl-textfield__input" %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--4-col">
+      <%= f.label :email, class: "mdl-textfield__label" %>
+      <%= f.text_field :email, class: "mdl-textfield__input" %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--2-col">
+      <%= f.label :phone, "Telefono", class: "mdl-textfield__label" %>
+      <%= f.text_field :phone, class: "mdl-textfield__input" %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--2-col">
+      <%= f.label :time, "Tiempo de conocerlo", class: "mdl-textfield__label" %>
+      <%= f.text_field :time, class: "mdl-textfield__input" %>
+    </div>
+  </div>
+  <%= link_to_remove_association "Eliminar referencia", f, class: 'remove_reference' %>
+</div>

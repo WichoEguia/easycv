@@ -20,6 +20,14 @@
   }
 }
 
-label{
-  text-transform: uppercase;
+.add_reference{
+  display: inline-block;
+  @include button(normal);
+}
+
+.remove_reference{
+  display: inline-block;
+  @include button(error);
+  margin: 20px 0;
+  align-self: flex-end;
 }

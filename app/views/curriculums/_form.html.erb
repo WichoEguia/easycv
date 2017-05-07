@@ -75,7 +75,7 @@
   </div>
 
   <div class="section_seeparator flex centerY centerX">
-    <div><p>INFORMMACIÓN PERSONAL</p></div>
+    <div><p>INFORMACIÓN PERSONAL</p></div>
     <div class="line"></div>
   </div>
 
@@ -100,7 +100,16 @@
     </div>
   </div>
 
-  <!-- REFERENCIAS PERSONALES -->
+  <p style="font-size:20px;color:#3f51b5">Referencias personales</p>
+
+  <div id="personal_references">
+    <%= f.fields_for :personal_references do |references| %>
+      <%= render 'personal_reference_fields', f: references %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Añadir referencia personal', f, :personal_references, class: 'add_reference' %>
+    </div>
+  </div>
 
   <div class="section_seeparator flex centerY centerX">
     <div><p>INFORMMACIÓN EDUCATIVA</p></div>
@@ -110,7 +119,7 @@
   <div class="field mdl-grid">
     <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
       <% grados_estudio = ["","Secundaria","Preparatoria general","Bachillerato general","Bachillerato tecnico","Licenciatura","Maestria","Doctorado"] %>
-      <span style="font-size:12px;color:rgb(63,81,181);">Grado de estudios:</span><br>
+      <span style="font-size:12px;color:#3f51b5;">Grado de estudios:</span><br>
       <%= f.select :grado_estudios, grados_estudio, {}, include_blank: true, class: "chosen_select", style: "width: 200px;" %>
     </div>
   </div>

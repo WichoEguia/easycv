@@ -18,6 +18,7 @@
 //= require pickadate/picker
 //= require pickadate/picker.date
 //= require pickadate/picker.time
+//= require cocoon
 //= require turbolinks
 //= require_tree .
 
@@ -83,5 +84,9 @@ document.addEventListener("turbolinks:load", function() {
       swal("Exito","Usuario creado","success");
     }
   });
+
+  $(".add_reference").click(function(){
+    componentHandler.upgradeDom();
+  })
 
 });
