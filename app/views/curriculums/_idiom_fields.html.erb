@@ -1,0 +1,17 @@
+<div class="nested-fields">
+  <div class="field mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+      <% languages = ["Chino", "Español", "Inglés", "Árabe", "Francés"] %>
+      <% languages += ["Italiano", "Portugués", "Ruso", "Japonés", "Alemán"] %>
+      <% languages.sort_by!{ |e| e.downcase } %>
+      <span style="font-size:12px;color:rgb(63,81,181);">Idioma:</span><br>
+      <%= f.select :language, languages, {}, include_blank: true, class: "chosen_select", placeholder: "Selecciona un idioma", style: "width: 200px;" %>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <span style="font-size:12px;color:rgb(63,81,181);">Dominio %:</span><br>
+      <% percent = ["Lengua materna"] + (0..100).step(5).to_a %>
+      <%= f.select :percentage, percent, {}, include_blank: true, class: "chosen_select", style: "width: 200px;" %>
+    </div>
+  </div>
+  <%= link_to_remove_association "Eliminar idioma", f, class: 'remove_reference' %>
+</div>

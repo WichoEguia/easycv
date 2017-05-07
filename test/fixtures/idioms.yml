@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  language: MyString
+  percentage: 1
+  curriculum: one
+
+two:
+  language: MyString
+  percentage: 1
+  curriculum: two

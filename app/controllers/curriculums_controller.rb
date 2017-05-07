@@ -111,7 +111,8 @@ class CurriculumsController < ApplicationController
                                        :telefono, :celular, :especialidad, :grado_estudios, :sueldo_dec,
                                        :herramientas_usadas, :last_work_description, :personal_information,
                                        :last_work, :interests, :personal_goals, :title, :graduates,
-                                       personal_references_attributes: [:id, :name, :email, :phone, :time, :_destroy])
+                                       personal_references_attributes: [:id, :name, :email, :phone, :time, :_destroy],
+                                       idioms_attributes: [:id, :language, :percentage, :_destroy])
   end
 
   # Validando que el curriculum le pertenece al usuario, si no es así se

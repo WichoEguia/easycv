@@ -182,7 +182,16 @@
     </div>
   </div>
 
-  <!-- IDIOMAS -->
+  <p style="font-size:20px;color:#3f51b5">Idiomas</p>
+
+  <div id="personal_references">
+    <%= f.fields_for :idioms do |idiom| %>
+      <%= render 'idiom_fields', f: idiom %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Añadir Idioma', f, :idioms, class: 'add_reference' %>
+    </div>
+  </div>
 
   <div class="actions">
     <%= f.submit "Guardar cambios" %>

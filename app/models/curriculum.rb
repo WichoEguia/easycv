@@ -16,4 +16,7 @@ class Curriculum < ApplicationRecord
   has_many :personal_references, inverse_of: :curriculum
   accepts_nested_attributes_for :personal_references, reject_if: :all_blank, allow_destroy: true
 
+  has_many :idioms, inverse_of: :curriculum
+  accepts_nested_attributes_for :idioms, reject_if: :all_blank, allow_destroy: true
+
 end
