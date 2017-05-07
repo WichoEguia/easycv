@@ -37,20 +37,6 @@
         <p class="data_text">Metas personales:</p>
         <p><%= @curriculum.personal_goals %></p>
       <% end %>
-      <hr>
-      <% if !@curriculum.personal_references.empty? %>
-        <p class="data_text">Referencias personales</p>
-        <div class="mdl-grid">
-          <% @curriculum.personal_references.each do |r| %>
-            <div class="mdl-cell mdl-cell--6-col mdl-shadow--2dp" style="padding:10px;">
-              <p><span><%= "nombre: #{r.name}" %></span></p>
-              <p><span><%= "email: #{r.email}" %></span></p>
-              <p><span><%= "tel.: #{r.phone}" %></p>
-              <p><span><%= "Tiempo de conocerlo: #{r.time}" %></span></p>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
     </div>
 
     <div class="hr_fake"></div>
@@ -76,6 +62,10 @@
         <p><%= @curriculum.herramientas_usadas %></p>
       <% end %>
       <hr>
+      <% if @curriculum.experiencia_laboral != 0 %>
+        <p><%= "Experiencia laboral: #{@curriculum.experiencia_laboral} años" %></p>
+      <% end %>
+      <hr>
       <% if @curriculum.last_work.present? %>
         <p><%= "Ultimo trabajo: #{@curriculum.last_work}" %></p>
         <% if @curriculum.last_work_description.present? %>
@@ -83,8 +73,18 @@
         <% end %>
       <% end %>
       <hr>
-      <% if @curriculum.experiencia_laboral != 0 %>
-        <p><%= "Experiencia laboral: #{@curriculum.experiencia_laboral} años" %></p>
+      <% if !@curriculum.personal_references.empty? %>
+        <p class="data_text">Referencias Profecionales</p>
+        <div class="mdl-grid">
+          <% @curriculum.personal_references.each do |r| %>
+            <div class="mdl-cell mdl-cell--6-col mdl-shadow--2dp" style="padding:10px;">
+              <p><span><%= "nombre: #{r.name}" %></span></p>
+              <p><span><%= "email: #{r.email}" %></span></p>
+              <p><span><%= "tel.: #{r.phone}" %></p>
+              <p><span><%= "Tiempo de conocerlo: #{r.time}" %></span></p>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
