@@ -16,7 +16,7 @@ class ListsController < ApplicationController
   protected
 
   def list_params
-    params.require(:list).permit(:min_age,:max_age,:state,:speciality,:grade,:sex,:english_level)
+    params.require(:list).permit(:min_age,:max_age,:state,:speciality,:grade,:sex,:language,:percentage)
   end
 
 end

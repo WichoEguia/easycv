@@ -143,6 +143,17 @@
     <div class="line"></div>
   </div>
 
+  <p style="font-size:20px;color:#3f51b5">Idiomas</p>
+
+  <div id="personal_references">
+    <%= f.fields_for :idioms do |idiom| %>
+      <%= render 'idiom_fields', f: idiom %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Añadir Idioma', f, :idioms, class: 'add_reference' %>
+    </div>
+  </div>
+
   <div class="field mdl-grid">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
       <%= f.label :herramientas_usadas, "Hrramientas, software y demas funciones que domina", class: "mdl-textfield__label" %>
@@ -179,17 +190,6 @@
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
       <span style="font-size:12px;color:rgb(63,81,181);">Experiencia laboral (años):</span><br>
       <%= f.select :experiencia_laboral, (0..10).to_a, {}, include_blank: true, class: "chosen_select", style: "width: 200px;" %>
-    </div>
-  </div>
-
-  <p style="font-size:20px;color:#3f51b5">Idiomas</p>
-
-  <div id="personal_references">
-    <%= f.fields_for :idioms do |idiom| %>
-      <%= render 'idiom_fields', f: idiom %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Añadir Idioma', f, :idioms, class: 'add_reference' %>
     </div>
   </div>
 

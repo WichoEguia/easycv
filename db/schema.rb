@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507053602) do
+ActiveRecord::Schema.define(version: 20170507192149) do
 
   create_table "curriculums", force: :cascade do |t|
     t.string   "nombre"
@@ -61,10 +61,11 @@ ActiveRecord::Schema.define(version: 20170507053602) do
     t.integer  "min_age"
     t.integer  "max_age"
     t.string   "sex"
-    t.integer  "english_level"
     t.string   "grade"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "percentage"
+    t.string   "language"
   end
 
   create_table "personal_references", force: :cascade do |t|

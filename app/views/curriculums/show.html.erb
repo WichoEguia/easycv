@@ -57,6 +57,17 @@
 
     <div class="professional_info">
       <h4 class="tag_text">Información profecional</h4>
+      <% if !@curriculum.idioms.empty? %>
+        <p class="data_text">Idiomas</p>
+        <div class="mdl-grid">
+          <% @curriculum.idioms.each do |i| %>
+            <div class="mdl-cell mdl-cell--6-col mdl-shadow--2dp" style="padding:10px;">
+              <p><span><%= "#{i.language}, #{i.percentage}" %><%= "%" if i.percentage != "Lengua materna" %></span></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <hr>
       <% if @curriculum.herramientas_usadas %>
         <p>Herramientas, software y demás funciones que domina:</p>
         <p><%= @curriculum.herramientas_usadas %></p>
@@ -82,17 +93,6 @@
               <p><span><%= "email: #{r.email}" %></span></p>
               <p><span><%= "tel.: #{r.phone}" %></p>
               <p><span><%= "Tiempo de conocerlo: #{r.time}" %></span></p>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-      <hr>
-      <% if !@curriculum.idioms.empty? %>
-        <p class="data_text">Idiomas</p>
-        <div class="mdl-grid">
-          <% @curriculum.idioms.each do |i| %>
-            <div class="mdl-cell mdl-cell--6-col mdl-shadow--2dp" style="padding:10px;">
-              <p><span><%= "#{i.language}, #{i.percentage}" %><%= "%" if i.percentage != "Lengua materna" %></span></p>
             </div>
           <% end %>
         </div>
