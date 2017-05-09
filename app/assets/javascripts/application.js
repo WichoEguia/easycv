@@ -87,6 +87,10 @@ document.addEventListener("turbolinks:load", function() {
 
   $(".add_reference").click(function(){
     componentHandler.upgradeDom();
-  })
+  });
+
+  // $(".drop_recruit_link").click(function(e){
+  //   send_data_drop_recruit();
+  // })
 
 });

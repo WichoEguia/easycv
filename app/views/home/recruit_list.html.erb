@@ -3,10 +3,15 @@
 <% if !@recruits.empty? %>
   <% @recruits.each do |c| %>
     <div class="mdl-cell mdl-cell--12-col mdl-grid">
-      <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-        <div>
+      <div class="mdl-color--white mdl-shadow--2dp mdl-cell--12-col mdl-cell mdl-grid">
+        <div class="">
           <p><strong><%= "#{c.name}" %></strong></p>
-          <p><%= "#{c.key}" %></p>
+          <p><span>Email:</span><%= " #{c.email}" %></p>
+          <p><span>Telefono:</span> <%= " #{c.phone}" %></p>
+          <p><span>Clave de identificación:</span> <%= " #{c.key}" %></p>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <%= link_to "Eliminar recluta", drop_recruit_path(id: c.id), class: "mdl-button mdl-button--colored error mdl-js-button mdl-js-ripple-effect drop_recruit_link", data: {confirm: "¿Seguro de eliminar recluta?"} %>
         </div>
       </div>
     </div>

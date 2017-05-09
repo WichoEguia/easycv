@@ -16,6 +16,11 @@ class HomeController < ApplicationController
 
   end
 
+  def drop_recruit
+    @recruit = Recruit.find(params[:id]).destroy
+    redirect_to recruit_list_path
+  end
+
   def create_recruit
     @recruit = Recruit.new(name: params[:name], lastname: params[:lastname], email: params[:email], phone: params[:phone], is_admin: false, password: params[:password], password_confirmation: params[:password])
     @recruit.save

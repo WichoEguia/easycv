@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get 'new/recruit/create', to: 'home#create_recruit'
   get 'recruit/list', to: 'home#recruit_list'
   get 'dropcv', to: 'curriculums#drop_cv'
+  get 'drop/recruit', to: 'home#drop_recruit'
 end
