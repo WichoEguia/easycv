@@ -7,10 +7,23 @@
   <% @list.search_curriculums.reverse_each do |c| %>
     <div class="mdl-cell mdl-cell--12-col mdl-grid">
       <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-        <div>
-          <p><%= "#{c.nombre}, #{c.edad} años" %></p>
-          <p><strong><%= "#{c.especialidad}" %></strong></p>
-          <p><%= c.herramientas_usadas %></p>
+        <div class="flex row">
+          <div class="user_curriculum_photo">
+            <%= image_tag c.user.photo.url %>
+          </div>
+          <div class="user_curriculum_data">
+            <p style="font-size:25px;"><strong><%= "#{c.nombre}" %></strong></p>
+            <p><span>Edad:</span><%= " #{c.edad} años" %></p>
+            <p><span>Dirección:</span> <%= " #{c.direccion}, #{c.ciudad}, #{c.estado}" %></p>
+            <p><span>Especialidad:</span><%= " #{c.especialidad}" %></p>
+            <span>Idiomas:</span><br>
+            <ul style="margin-bottom:10px;">
+              <% c.idioms.each do |i| %>
+                <li style="margin-left: 25px;"><%= "#{i.language}, #{i.percentage}" %></li>
+              <% end %>
+            </ul>
+            <p><span>Sobre mi:</span><br><%= "#{c.personal_information}" %></p>
+          </div>
         </div>
         <div class="mdl-card__actions mdl-card--border">
           <%= link_to "Ver curriculum", c, class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>

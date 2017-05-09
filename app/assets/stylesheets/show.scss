@@ -79,3 +79,17 @@
 .reject_appointment{
   @include button("error");
 }
+
+.user_curriculum_photo{
+  img{
+    @include circle(60px);
+    margin: 0 10px 0 5px;
+  }
+}
+
+.user_curriculum_data{
+  p{
+    margin-bottom: 10px;
+    line-height: 20px !important;
+  }
+}
