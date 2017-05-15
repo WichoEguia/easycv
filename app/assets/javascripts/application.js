@@ -89,8 +89,16 @@ document.addEventListener("turbolinks:load", function() {
     componentHandler.upgradeDom();
   });
 
-  // $(".drop_recruit_link").click(function(e){
-  //   send_data_drop_recruit();
-  // })
+  // $(".checkbox_work").change(function(){
+  //   if($(".checkbox_work").prop("checked")){
+  //     $(".current_work_form").css({"display":"block"});
+  //   }else{
+  //     $(".current_work_form").css({"display":"none"});
+  //     $(".current_work_field").val("");
+  //     $(".current_work_field").removeClass("is-upgraded");
+  //   }
+  // });
+
+  console.log("im alive");
 
 });

@@ -100,8 +100,30 @@
     </div>
   </div>
 
+  <p style="font-size:20px;color:#3f51b5">Idiomas</p>
+
+  <div id="personal_references">
+    <%= f.fields_for :idioms do |idiom| %>
+      <%= render 'idiom_fields', f: idiom %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Añadir Idioma', f, :idioms, class: 'add_reference' %>
+    </div>
+  </div>
+
+  <p style="font-size:20px;color:#3f51b5">Referencias Profesionales</p>
+
+  <div id="personal_references">
+    <%= f.fields_for :personal_references do |references| %>
+      <%= render 'personal_reference_fields', f: references %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Añadir Referencia', f, :personal_references, class: 'add_reference' %>
+    </div>
+  </div>
+
   <div class="section_seeparator flex centerY centerX">
-    <div><p>INFORMMACIÓN EDUCATIVA</p></div>
+    <div><p>ESCOLARIDAD</p></div>
     <div class="line"></div>
   </div>
 
@@ -139,25 +161,21 @@
   </div>
 
   <div class="section_seeparator flex centerY centerX">
-    <div><p>INFORMMACIÓN PROFESIONAL</p></div>
+    <div><p>EMPLEO ACTUAL Y ANTERIORES</p></div>
     <div class="line"></div>
-  </div>
-
-  <p style="font-size:20px;color:#3f51b5">Idiomas</p>
-
-  <div id="personal_references">
-    <%= f.fields_for :idioms do |idiom| %>
-      <%= render 'idiom_fields', f: idiom %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Añadir Idioma', f, :idioms, class: 'add_reference' %>
-    </div>
   </div>
 
   <div class="field mdl-grid">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
       <%= f.label :herramientas_usadas, "Hrramientas, software y demas funciones que domina", class: "mdl-textfield__label" %>
       <%= f.text_area :herramientas_usadas, class: "mdl-textfield__input", rows: 3 %>
+    </div>
+  </div>
+
+  <div class="field mdl-grid">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+      <span style="font-size:12px;color:rgb(63,81,181);">Experiencia laboral (años):</span><br>
+      <%= f.select :experiencia_laboral, (0..10).to_a, {}, include_blank: true, class: "chosen_select", style: "width: 200px;" %>
     </div>
   </div>
 
@@ -175,21 +193,33 @@
     </div>
   </div>
 
-  <p style="font-size:20px;color:#3f51b5">Referencias Profesionales</p>
+  <p style="font-size:20px;color:#3f51b5">Trabajo actual</p>
 
-  <div id="personal_references">
-    <%= f.fields_for :personal_references do |references| %>
-      <%= render 'personal_reference_fields', f: references %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Añadir Referencia', f, :personal_references, class: 'add_reference' %>
-    </div>
+  <div class="field margin_field">
+    <%= f.check_box :current_work, {class: "checkbox_work"}, false, true %>
+    <%= f.label :current_work, "Tengo trabajo actualmente" %>
   </div>
 
-  <div class="field mdl-grid">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
-      <span style="font-size:12px;color:rgb(63,81,181);">Experiencia laboral (años):</span><br>
-      <%= f.select :experiencia_laboral, (0..10).to_a, {}, include_blank: true, class: "chosen_select", style: "width: 200px;" %>
+  <div class="current_work_form">
+    <div class="field mdl-grid">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+        <%= f.label :current_work_place, "Lugar donde trabaja actualmente", class: "mdl-textfield__label" %>
+        <%= f.text_field :current_work_place, class: "mdl-textfield__input current_work_field" %>
+      </div>
+    </div>
+
+    <div class="field mdl-grid">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+        <%= f.label :current_work_post, "Puesto que realiza actualmente", class: "mdl-textfield__label" %>
+        <%= f.text_field :current_work_post, class: "mdl-textfield__input current_work_field" %>
+      </div>
+    </div>
+
+    <div class="field mdl-grid">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+        <%= f.label :current_work_functions, "Funciones que realiza", class: "mdl-textfield__label" %>
+        <%= f.text_area :current_work_functions, class: "mdl-textfield__input current_work_field", rows: 3 %>
+      </div>
     </div>
   </div>
 

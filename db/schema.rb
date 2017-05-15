@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507192149) do
+ActiveRecord::Schema.define(version: 20170514195003) do
 
   create_table "curriculums", force: :cascade do |t|
     t.string   "nombre"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20170507192149) do
     t.string   "especialidad"
     t.string   "grado_estudios"
     t.string   "herramientas_usadas"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "user_id"
     t.string   "estado"
     t.string   "experiencia_laboral"
@@ -37,11 +37,15 @@ ActiveRecord::Schema.define(version: 20170507192149) do
     t.datetime "date_appointment"
     t.datetime "time_appointment"
     t.integer  "recruit_id"
-    t.boolean  "has_date",              default: false
+    t.boolean  "has_date",               default: false
     t.string   "interests"
     t.string   "personal_goals"
     t.string   "title"
     t.string   "graduates"
+    t.boolean  "current_work"
+    t.string   "current_work_place"
+    t.string   "current_work_post"
+    t.string   "current_work_functions"
     t.index ["recruit_id"], name: "index_curriculums_on_recruit_id"
     t.index ["user_id"], name: "index_curriculums_on_user_id"
   end

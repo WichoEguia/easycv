@@ -111,6 +111,7 @@ class CurriculumsController < ApplicationController
                                        :telefono, :celular, :especialidad, :grado_estudios, :sueldo_dec,
                                        :herramientas_usadas, :last_work_description, :personal_information,
                                        :last_work, :interests, :personal_goals, :title, :graduates,
+                                       :current_work, :current_work_place, :current_work_post, :current_work_functions,
                                        personal_references_attributes: [:id, :name, :email, :phone, :time, :_destroy],
                                        idioms_attributes: [:id, :language, :percentage, :_destroy])
   end
